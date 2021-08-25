@@ -1,0 +1,187 @@
+<title>Patient Pain Assessments: <%= patient.name %> </title>
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+<link rel="stylesheet" href="../public/patientDashboard.css" />
+<style>
+
+.patientContainer {
+/* Align sub-items to top */
+align-items: start;
+display: flex;
+margin-top: 5vh;
+width: 100%;
+border-top: 2px solid black;
+border-bottom: 2px solid black;
+}
+
+.patientContainer__media {
+padding-left: 5vh;
+padding-top: 16px;
+
+/* Set the width for the media object */
+width: 50%;
+}
+
+.image {
+flex: 1;
+}
+
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+border: 1px solid #e7e7e7;
+background-color: #f3f3f3;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: #666;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #ddd;
+}
+
+li a.active {
+color: white;
+background-color: #0d6efd;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: fit-content;
+  margin: 1rem;
+  position: relative;
+  width: 180px;
+  bottom: 5%;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+#menu-outer {
+    height: fit-content;
+}
+
+.table {
+    display: table;
+    margin: 0 0 0 0;
+  height: fit-content;
+}
+
+ul#horizontal-list {
+    min-width: 100%;
+    list-style: none;
+  height: fit-content;
+    }
+    ul#horizontal-list li { 
+    margin: 3% 3% 3% 0;
+    }
+
+
+@media (min-width: 700px) {
+  body {
+    grid-template-columns: repeat(3, 200px);
+  }
+}
+
+.success {
+  margin-bottom: 15px;
+  padding: 12px 12px 3px 10px;
+  background-color: rgb(231, 231, 231);
+  border-left: 6px solid #0d6efd;
+}
+
+.folder_paper_illusion {
+background-color: white;
+box-shadow: 4px 4px #ccc, 5px 5px #ccc;
+transition: box-shadow 1s;
+display: inline-block;
+margin: 2% 2%;
+vertical-align: top;
+width: 25%;
+height: fit-content;
+padding: 1%;
+border: 2px solid #ccc;
+}
+
+
+</style>
+<div class="headerPatientProfile">
+  <ul>
+    <li><a class="active" href="/patient/lookup/<%= patient.uhid %>">Go back: Patient Profile</a></li>
+      <li><a href="/">Main Dashboard</a></li>
+      <li><a href="/patient/register">Patient Registration</a></li>
+      <li style="float: right;"><a href="/logout">Log Out</a></li>
+    </ul>
+
+    <center><p style="color: black; font-size: 5vh;">Patient Electronic Medical Records</p></center>
+
+
+</div>
+
+
+  <div class="patientContainer">
+  <!-- Media object -->
+  <div class="patientContainer__media">
+      <h6><u><b>Patient Name:</b></u> <%= patient.name %></h6>
+      <h6><u><b>Patient UHID:</b></u> <%= patient.uhid %></h6>
+      <h6><u><b>Patient Email:</b></u> <%= patient.email %></h6>
+      <h6><u><b>Patient Contact:</b></u> <%= patient.Contact %></h6>
+      <h6><u><b>Patient Country:</b></u> <%= patient.country %></h6>
+      <h6><u><b>Patient Country Code:</b></u> <%= patient.countryCode %></h6>
+  </div>
+  <div class="image">
+    <img src="/public/default.png" style="float: right;">
+  </div>
+</div>
+
+<!-- 
+============================================================================================================================================
+                                                      Pain Assessments Section
+============================================================================================================================================
+-->
+
+
+<section>
+    <div class="success">
+      <p><strong>Past Pain Assessment Reports ▼ </strong><a href="/patient/<%= patient.uhid %>/pain-assessments/new" class="btn btn-secondary" style="background-color: #0d6efd; color: white; border: none; float: right; margin-top: -0.2%; margin-right: 1.5%;">New Report +</a></p>
+    </div>
+    
+  
+    <div id="menu-outer">
+      <div class="table">
+        <ul id="horizontal-list">
+          <% if(allPainAssessments !== undefined && allPainAssessments !== null && allPainAssessments instanceof Array && allPainAssessments.length > 0) { %>
+            <% for(i in allPainAssessments) { %>
+              <li class="card card-1" style="display: inline-flexbox;"><p style="display: flexbox; text-align: center; margin-top: 12%;"><%= allPainAssessments[i].reportName %><br><br>Date: <%= allPainAssessments[i].uploadedAt %><br><br><a href="/patient/<%= patient.uhid %>/pain-assessments/view/<%= allPainAssessments[i].id %>/" class="btn btn-secondary" style="background-color: #0d6efd; color: white; border: none; width: 80%;">View full report <i class="fas fa-eye"></i></a></p></li>
+              <% } %>  
+            <% } else { %>
+                <li class="card2 card-2">There are no past Pain Assessment reports available!</li>
+              <% } %> 
+          
+  
+            
+        </ul>
+      </div>
+    </div>
+  </section>

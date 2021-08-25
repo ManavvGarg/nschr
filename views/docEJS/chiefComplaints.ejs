@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report: <%= report.reportName %> </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./patientRegisterPage.css">
+    <style>
+        *,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 16px;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    padding: 50px;
+}
+
+.container {
+    background-color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    border-radius: 3px;
+}
+
+.container h1 {
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+
+input,
+button {
+    font-family: "Ubuntu", sans-serif;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+}
+
+.input:hover {
+    border-color: #999999;
+}
+
+.input:focus {
+    border-color: #0d6efd;
+}
+
+[type="submit"] {
+    background: #0d6efd;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    border-radius: 3px;
+    padding: 12px 0;
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-top: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+[type="submit"]:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+label {
+    font-weight: bold;
+}
+
+.link {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.link a {
+    color: #0d6efd;
+}
+
+
+.success-msg,
+.err-msg {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.success-msg {
+    color: #ffffff;
+    background-color: #20c997;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chief Complaint Report</h1>
+    <span><u><b>Report Name:</b></u> <%= report.reportName %></span><br><Br>
+    <span><b><u>Uploaded At: </u></b><%= report.uploadedAt %> </span><br><br>
+    <p><b><u>Additional Comments:</u></b><br><%= report.comments %></p>
+    <embed
+    src="<%= url %>#navpanes=0"
+    type="application/pdf"
+    frameBorder="0"
+    scrolling="auto"
+    height="600px"
+    width="100%"
+></embed>
+    </iframe>
+    <br><br><Br><br><br>
+    <center><a href="/patient/<%= patient.uhid %>/chief-complaints">Go back</a></center>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+.card {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: fit-content;
+    margin: 1rem;
+    position: relative;
+    width: 180px;
+    bottom: 5%;
+  }
+  
+  .card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  
+  .card-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+  
+  #menu-outer {
+      height: fit-content;
+  }
+  
+  .table {
+      display: table;
+      margin: 0 0 0 0;
+    height: fit-content;
+  }
+  
+  ul#horizontal-list {
+      min-width: 100%;
+      list-style: none;
+    height: fit-content;
+      }
+      ul#horizontal-list li { 
+      margin: 3% 3% 3% 0;
+      }
+  
+  
+  @media (min-width: 700px) {
+    body {
+      grid-template-columns: repeat(3, 200px);
+    }
+  }
+
+  .success {
+    margin-bottom: 15px;
+    padding: 12px 12px 3px 10px;
+    background-color: #ddffdd;
+    border-left: 6px solid #04AA6D;
+  }
+
+  .folder_paper_illusion {
+background-color: white;
+box-shadow: 4px 4px #ccc, 5px 5px #ccc;
+transition: box-shadow 1s;
+display: inline-block;
+margin: 2% 2%;
+vertical-align: top;
+width: 25%;
+height: fit-content;
+padding: 1%;
+border: 2px solid #ccc;
+}

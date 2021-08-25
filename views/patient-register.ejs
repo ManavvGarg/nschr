@@ -1,0 +1,31 @@
+<%- include('header',{
+  title:'Patient Registration'
+}); -%>
+
+<div class="container">
+  <h1>Patient Sign Up</h1>
+  <form action="" method="POST">
+      <label for="patientName">Name</label>
+      <input type="text" class="input" name="patient_name" autocomplete="off" id="patient_name" placeholder="Enter name">
+      <label for="paitentEmail">Email</label>
+      <input type="email" class="input" name="patient_email" autocomplete="off" id="patient_email" placeholder="Enter email">
+      <label for="patientContact">Contact</label>
+      <input type="number" class="input" name="patient_contact" id="patient_contact" placeholder="Enter contact number">
+      <label for="patientUHID">UHID [ Aadhaar ]</label>
+      <input type="number" class="input" name="patient_uhid" id="patient_uhid" placeholder="Enter UHID">
+      <label for="country">Country</label>
+      <%- include('partials/countries') %>
+      <label for="countryCode">Country code</label>
+      <%- include('partials/countryCodes'); %>
+      
+      <% if(typeof msg != 'undefined'){ %>
+      <div class="success-msg"><%= msg %></div><% }
+      if(typeof error !== 'undefined'){ %>
+      <div class="err-msg"><%= error %></div><% } %>
+      <input type="submit" value="Sign patient up">
+  </form><hr>
+  <a href="/" style="align-items: center; justify-items: center; margin-right: 40%; margin-left: 40%; width: 10%;">Go back</a>
+</div>
+
+
+<%- include('footer'); -%>

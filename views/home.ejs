@@ -1,0 +1,31 @@
+<%- include('header'); -%>
+<div class="container">
+    <div class="profile">
+        <div class="img">👦</div>
+        <h2>Welcome</h2>
+        <span><%= user.name %> | <%= user.email %></span>
+        <a href="/logout">Log Out</a>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="profile">
+
+        <form action="/patient/lookup" method="POST">
+            <label for="patientName">Search Patient:</label>
+            <input type="number" class="input" name="patient_uhid" autocomplete="off" id="patient_name" placeholder="Enter Patient UHID">      
+                <% if(typeof msg != 'undefined'){ %>
+                <div class="success-msg"><%= msg %></div><% }
+                if(typeof error !== 'undefined'){ %>
+                <div class="err-msg"><%= error %></div><% } %>
+                <input type="submit" value="Look up">
+        </form>
+        <hr style="color: black;">
+        <a href="/patient/register">Register A new Patient</a>
+
+    
+
+    </div>
+</div>
+<%- include('footer'); -%>

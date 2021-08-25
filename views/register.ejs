@@ -1,0 +1,25 @@
+<%- include('header',{
+    title:'NSCHR Employee Signup'
+}); -%>
+
+<div class="container">
+    <h1>Employee Sign Up</h1>
+    <form action="/signup" method="POST">
+        <label for="user_name">Name</label>
+        <input type="text" class="input" name="_name" autocomplete="off" id="user_name" placeholder="Enter your name">
+        <label for="user_email">Email</label>
+        <input type="email" class="input" name="_email" autocomplete="off" id="user_email" placeholder="Enter your email">
+        <label for="user_pass">Password</label>
+        <input type="password" class="input" name="_password" id="user_pass" placeholder="Enter new password">
+        <label for="admin_key">Admin Key</label>
+        <input type="password" class="input" name="_admin_key" id="admin_key" placeholder="Enter ADMIN Key">
+        <% if(typeof msg != 'undefined'){ %>
+        <div class="success-msg"><%= msg %></div><% }
+        if(typeof error !== 'undefined'){ %>
+        <div class="err-msg"><%= error %></div><% } %>
+        <input type="submit" value="Sign Up">
+        <div class="link"><a href="./login">Employee Login</a></div>
+    </form>
+</div>
+
+<%- include('footer'); -%>
