@@ -7,9 +7,6 @@ Our solution is a gamified experience that enables the Employee (Medical Practit
 
 From fetching vitals of a patient to fetching their past prescriptions and allergies, all can be done with just a click!
 
-# Run demo
-Visit [https://covicoin.herokuapp.com](https://covicoin.herokuapp.com).
-
 # Run it locally
 
 1. Clone the repository.
